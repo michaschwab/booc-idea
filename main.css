@@ -1,0 +1,32 @@
+path {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+}
+
+.controls
+{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+.controls a {
+    cursor: pointer;
+}
+.depEnd path {
+    fill: #000;
+}
+.course-progression {
+    position: absolute;
+    left:35%;
+    top: 48%;
+    font-size: 16pt;
+}
+
+.course-concepts circle {
+    fill: red;
+}
+
+.concept text {
+    font-size: 14pt;
+}
