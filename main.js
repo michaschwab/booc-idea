@@ -54,6 +54,10 @@ function startAnimation()
         .style("opacity", 1)
         .transition().duration(400).style("opacity", 0);
 
+    d3.selectAll(".controls")
+        .style("opacity", 1)
+        .transition().duration(400).style("opacity", 0);
+
     window.setTimeout(function()
     {
         circleLine.transition()
