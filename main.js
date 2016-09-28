@@ -63,6 +63,13 @@ function startAnimation()
         circleLine.transition()
             .duration(2000)
             .attrTween("d", tween());
+
+        vis.select('g.translation')
+            .attr("transform", "translate(0,0)")
+            .transition()
+            .duration(2000)
+            .attr("transform", "translate(" + radius + ",0)");
+
     }, 500);
 
     window.setTimeout(function()
@@ -81,12 +88,6 @@ function startAnimation()
     return false;
 }
 
-function translateContent(percent)
-{
-    vis.select('g.translation')
-        .attr("transform", "translate(" + radius * percent + ",0)")
-}
-
 function tween()
 {
     return function()
@@ -94,12 +95,10 @@ function tween()
         return function(t)
         {
             var iteration = Math.round(t * (numberPoints / 2 - 1));
-            var d = bendLine(iteration);
 
-            translateContent(t);
             redrawConcepts();
 
-            return d;
+            return bendLine(iteration);
         }
 
     }
