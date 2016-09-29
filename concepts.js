@@ -20,8 +20,7 @@ function initConcepts()
 
     redrawConcepts();
 
-    gConcepts
-        .transition().delay(1200).duration(800).style("opacity", 1);
+
 }
 
 function redrawConcepts()

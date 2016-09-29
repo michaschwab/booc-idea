@@ -7,7 +7,6 @@ function initDependencies()
 
     gDeps
         .style('opacity', 0)
-        .transition().delay(2000).duration(800).style("opacity", 1);
 
     redrawDeps();
 }

@@ -51,19 +51,28 @@ function draw()
     initDependencies();
 }
 
-function startAnimation()
+function animationStep1()
+{
+    gConcepts
+        .transition().duration(800).style("opacity", 1);
+}
+
+function animationStep2()
 {
     d3.select(".course-progression")
         .style("opacity", 1)
         .transition().duration(400).style("opacity", 0);
 
+    gDeps
+        .transition().duration(800).style("opacity", 1);
+}
+function animationStep3()
+{
     d3.selectAll(".concept .concept-title")
         .style("opacity", 1)
         .transition().duration(400).style("opacity", 0);
 
-    d3.selectAll(".controls")
-        .style("opacity", 1)
-        .transition().duration(400).style("opacity", 0);
+
 
     window.setTimeout(function()
     {
@@ -80,35 +89,47 @@ function startAnimation()
             .attr("transform", "translate(" + radius + ",0)");
 
     }, 500);
+}
+function animationStep4()
+{
+    vis.select('g.translation')
+        .attr("transform", "translate(" + radius + ",0)")
+        .transition()
+        .duration(1000)
+        .attr("transform", "translate(" + radius / 3 + ",0)");
 
-    //
-
-    window.setTimeout(function()
-    {
-        vis.select('g.translation')
-            .attr("transform", "translate(" + radius + ",0)")
-            .transition()
-            .duration(1000)
-            .attr("transform", "translate(" + radius / 3 + ",0)");
-
-        /*vis.select("g.zoom")
-            .attr("transform", "scale(" + 1 + ")")
-            .transition()
-            .duration(1000)
-            .attrTween("transform", "scale(" + 3 + ")");*/
-
-        vis.select("g.zoom")
-            .transition()
-            .duration(1000)
-            .attrTween("transform", tweenZoom);
+    vis.select("g.zoom")
+        .transition()
+        .duration(1000)
+        .attrTween("transform", tweenZoom);
 
 
-        function tweenZoom(d, i, a) {
-            return d3.interpolateString("scale(1)", "scale(3)");
-        }
+    function tweenZoom(d, i, a) {
+        return d3.interpolateString("scale(1)", "scale(3)");
+    }
 
+    d3.select('#animationButton').classed('disabled', 'true');
+    /*d3.selectAll(".controls")
+        .style("opacity", 1)
+        .transition().duration(400).style("opacity", 0);*/
+}
 
-    }, 2800);
+var animationStepNumber = 1;
+
+function startAnimation()
+{
+    if(animationStepNumber == 1)
+        animationStep1();
+    if(animationStepNumber == 2)
+        animationStep2();
+    if(animationStepNumber == 3)
+        animationStep3();
+    if(animationStepNumber == 4)
+        animationStep4();
+
+    d3.select('#currentAnimationStep').text(animationStepNumber);
+
+    animationStepNumber++;
 
     /*window.setTimeout(function()
     {
