@@ -43,7 +43,11 @@
                     orient="auto">
                 <path d="M0,-20 L0,20" fill="context-stroke"></path>
             </marker>
-            <marker id="depEnd" class="depEnd" markerWidth="13" markerHeight="13" refx="3" refy="6.5"
+            <marker id="timeEnd" class="timeEnd" markerWidth="13" markerHeight="13" refx="3" refy="6.5"
+                    orient="auto">
+                <path d="M2,2 L2,11 L10,6 L2,2" fill="context-stroke"></path>
+            </marker>
+            <marker id="depEnd" class="depEnd" markerWidth="13" markerHeight="13" refx="22" refy="6.5"
                     orient="auto">
                 <path d="M2,2 L2,11 L10,6 L2,2" fill="context-stroke"></path>
             </marker>
@@ -53,6 +57,10 @@
             <g class="translation">
                 <g class="rotation">
                     <g class="course-line">
+
+                    </g>
+
+                    <g class="course-dependencies">
 
                     </g>
 
@@ -97,6 +105,7 @@
 <script src="https://d3js.org/d3-shape.v1.min.js"></script>
 <script src="circleLine.js"></script>
 <script src="concepts.js"></script>
+<script src="dependencies.js"></script>
 <script src="main.js"></script>
 
 </body>

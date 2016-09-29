@@ -16,6 +16,11 @@ var line = d3.svg.line()
     .x(function(d) { return d.x; })
     .y(function(d) { return d.y; })
     .interpolate("linear");
+var lineBasis = d3.svg.line()
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; })
+    .interpolate("basis");
+
 var points = [];
 var numberPoints = 500;
 var radius = windowHeight / 7;
@@ -24,6 +29,7 @@ var startAngle = - 0.95 * Math.PI;
 var lineLength = Math.round(maxAngle * radius);
 var distanceBetweenPoints = lineLength / numberPoints;
 var circleLine;
+var isStraight = true;
 
 init();
 
@@ -42,6 +48,7 @@ function draw()
 
     makeCircleLine();
     initConcepts();
+    initDependencies();
 }
 
 function startAnimation()
@@ -60,6 +67,8 @@ function startAnimation()
 
     window.setTimeout(function()
     {
+        isStraight = false;
+
         circleLine.transition()
             .duration(2000)
             .attrTween("d", tween());
@@ -72,7 +81,7 @@ function startAnimation()
 
     }, 500);
 
-    window.setTimeout(function()
+    /*window.setTimeout(function()
     {
         g
             .transition()
@@ -82,7 +91,7 @@ function startAnimation()
         function tween(d, i, a) {
             return d3.interpolateString("rotate(0)", "rotate(90)");
         }
-    }, 2800);
+    }, 2800);*/
 
 
     return false;
@@ -97,6 +106,7 @@ function tween()
             var iteration = Math.round(t * (numberPoints / 2 - 1));
 
             redrawConcepts();
+            redrawDeps();
 
             return bendLine(iteration);
         }

@@ -23,7 +23,7 @@ function makeCircleLine()
 
     circleLine = gLine.append("path")
         //.attr("d", line(points));
-        .style({'marker-end': 'url(#depEnd)', 'marker-start': 'url(#timeStart)'})
+        .style({'marker-end': 'url(#timeEnd)', 'marker-start': 'url(#timeStart)'})
         .attr("d", bendLine(0));
 }
 

@@ -14,7 +14,7 @@ path {
 .controls a {
     cursor: pointer;
 }
-.depEnd path {
+.timeEnd path {
     fill: #000;
 }
 .course-progression {
@@ -37,4 +37,13 @@ path {
     text-anchor: middle;
     dominant-baseline: middle;
     fill: #fff;
+}
+
+/** DEPS **/
+.course-dependencies path {
+    stroke: #ff0000;
+}
+.depEnd path {
+    fill: #ff0000;
+    stroke: ff0000;
 }

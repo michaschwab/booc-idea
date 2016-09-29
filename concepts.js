@@ -1,5 +1,11 @@
 var gConcepts;
-var conceptList = [{title: 'Concept 1', short: '1'}, {title: 'Concept 2', short: '2'}, {title: 'Concept 3', short: '3'}, {title: 'Concept 4', short: '4'}, {title: 'Concept 5', short: '5'}];
+var conceptList = [{id: '1', title: 'Concept 1', short: '1'}, {id: '2', title: 'Concept 2', short: '2'}, {id: '3', title: 'Concept 3', short: '3'}, {id: '4', title: 'Concept 4', short: '4'}, {id: '5', title: 'Concept 5', short: '5'}];
+
+var conceptsById = {};
+conceptList.forEach(function(concept)
+{
+    conceptsById[concept.id] = concept;
+});
 
 function initConcepts()
 {
