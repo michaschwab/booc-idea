@@ -1,5 +1,5 @@
 var gConcepts;
-var conceptList = [{title: 'Concept 1'}, {title: 'Concept 2'}, {title: 'Concept 3'}, {title: 'Concept 4'}, {title: 'Concept 5'}];
+var conceptList = [{title: 'Concept 1', short: '1'}, {title: 'Concept 2', short: '2'}, {title: 'Concept 3', short: '3'}, {title: 'Concept 4', short: '4'}, {title: 'Concept 5', short: '5'}];
 
 function initConcepts()
 {
@@ -44,11 +44,18 @@ function drawConcepts()
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
     conceptEnter.append('circle')
-        .attr('r', 10);
+        .attr('r', 11);
+
+    conceptEnter.append('text')
+        .attr('x', 0.5)
+        .attr('y', 1)
+        .attr('class', 'concept-short')
+        .text(function(d) { return d.short; });
 
     conceptEnter.append('text')
         .attr('x', 20)
-        .attr('y', 7)
+        .attr('y', 1)
+        .attr('class', 'concept-title')
         .text(function(d) { return d.title; });
 }
 

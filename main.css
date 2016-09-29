@@ -25,9 +25,16 @@ path {
 }
 
 .course-concepts circle {
-    fill: red;
+    fill: #6666aa;
 }
 
-.concept text {
+.concept text.concept-title {
     font-size: 14pt;
+    dominant-baseline: middle;
+}
+.concept text.concept-short {
+    font-size: 13pt;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #fff;
 }
