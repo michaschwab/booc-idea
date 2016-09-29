@@ -19,7 +19,8 @@ path {
 }
 .course-progression {
     position: absolute;
-    left:35%;
+    left:50%;
+    margin-left: -300px;
     top: 48%;
     font-size: 16pt;
 }
