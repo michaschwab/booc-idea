@@ -81,6 +81,35 @@ function startAnimation()
 
     }, 500);
 
+    //
+
+    window.setTimeout(function()
+    {
+        vis.select('g.translation')
+            .attr("transform", "translate(" + radius + ",0)")
+            .transition()
+            .duration(1000)
+            .attr("transform", "translate(" + radius / 3 + ",0)");
+
+        /*vis.select("g.zoom")
+            .attr("transform", "scale(" + 1 + ")")
+            .transition()
+            .duration(1000)
+            .attrTween("transform", "scale(" + 3 + ")");*/
+
+        vis.select("g.zoom")
+            .transition()
+            .duration(1000)
+            .attrTween("transform", tweenZoom);
+
+
+        function tweenZoom(d, i, a) {
+            return d3.interpolateString("scale(1)", "scale(3)");
+        }
+
+
+    }, 2800);
+
     /*window.setTimeout(function()
     {
         g
