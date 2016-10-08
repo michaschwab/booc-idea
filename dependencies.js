@@ -1,4 +1,4 @@
-var deps = [{ from: '1', to: '2'}, { from: '1', to: '4'}, { from: '2', to: '3'}, { from: '4', to: '5'}, { from: '2', to: '4'}];
+var deps = [{ from: '2', to: '4'}, { from: '3', to: '5'}, { from: '3', to: '6'}, { from: '2', to: '7'}];
 var gDeps;
 
 function initDependencies()
@@ -6,7 +6,7 @@ function initDependencies()
     gDeps = g.select('g.course-dependencies');
 
     gDeps
-        .style('opacity', 0)
+        .style('opacity', 0);
 
     redrawDeps();
 }
@@ -29,7 +29,8 @@ function redrawDeps()
         }
         else*/
         {
-            bendPoint = {x: 0, y: yDistance / 2 + conceptFrom.y};
+            //bendPoint = {x: 0, y: yDistance / 2 + conceptFrom.y};
+            bendPoint = {x: -yDistance * 0.3 + 100, y: yDistance / 2 + conceptFrom.y};
         }
 
         gDeps.append("path")

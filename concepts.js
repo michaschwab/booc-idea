@@ -1,5 +1,5 @@
 var gConcepts;
-var conceptList = [{id: '1', title: 'Concept 1', short: '1'}, {id: '2', title: 'Concept 2', short: '2'}, {id: '3', title: 'Concept 3', short: '3'}, {id: '4', title: 'Concept 4', short: '4'}, {id: '5', title: 'Concept 5', short: '5'}];
+var conceptList = [{id: '1', title: 'Basics', short: '1', color: '#99adeb'}, {id: '2', title: 'Theories of Inference', short: '2', color: '#f2c4ae'}, {id: '3', title: 'Maximum Likelihood Estimation', short: '3', color: '#d6acff'}, {id: '4', title: 'Model Dependence', short: '4', color: '#b8e68a'}, {id: '5', title: 'Assessing Models and Estimators', short: '5', color: '#ffbfc0'}, {id: '6', title: 'Multiple Regression', short: '6', color: '#9ee2e8'}, {id: '7', title: 'Research Design', short: '7', color: '#ffffd1'}];
 
 var conceptsById = {};
 conceptList.forEach(function(concept)
@@ -10,8 +10,8 @@ conceptList.forEach(function(concept)
 function initConcepts()
 {
     gConcepts = g.select('g.course-concepts');
-    gConcepts
-        .style('opacity', 0);
+    /*gConcepts
+        .style('opacity', 0);*/
 
     conceptList.forEach(function(concept)
     {
@@ -49,7 +49,8 @@ function drawConcepts()
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
     conceptEnter.append('circle')
-        .attr('r', 11);
+        .attr('r', 15)
+        .style('fill', function(d) { return d.color; });
 
     conceptEnter.append('text')
         .attr('x', 0.5)
@@ -58,7 +59,7 @@ function drawConcepts()
         .text(function(d) { return d.short; });
 
     conceptEnter.append('text')
-        .attr('x', 20)
+        .attr('x', 30)
         .attr('y', 1)
         .attr('class', 'concept-title')
         .text(function(d) { return d.title; });

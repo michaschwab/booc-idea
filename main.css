@@ -28,6 +28,14 @@ path {
     top: 48%;
     font-size: 16pt;
 }
+.course-shortcuts {
+    position: absolute;
+    left:50%;
+    margin-left: -280px;
+    top: 48%;
+    font-size: 16pt;
+    opacity: 0;
+}
 
 .course-concepts circle {
     fill: #6666aa;
@@ -41,7 +49,7 @@ path {
     font-size: 13pt;
     text-anchor: middle;
     dominant-baseline: middle;
-    fill: #fff;
+    fill: #000;
 }
 
 /** DEPS **/

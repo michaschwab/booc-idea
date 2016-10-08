@@ -50,29 +50,35 @@ function draw()
     initConcepts();
     initDependencies();
 }
-
+/*
 function animationStep1()
 {
     gConcepts
         .transition().duration(800).style("opacity", 1);
-}
+}*/
 
-function animationStep2()
+function animationStep1()
 {
     d3.select(".course-progression")
         .style("opacity", 1)
         .transition().duration(400).style("opacity", 0);
 
+    d3.select(".course-shortcuts")
+        .style("opacity", 0)
+        .transition().duration(400).style("opacity", 1);
+
     gDeps
         .transition().duration(800).style("opacity", 1);
 }
-function animationStep3()
+function animationStep2()
 {
     d3.selectAll(".concept .concept-title")
         .style("opacity", 1)
         .transition().duration(400).style("opacity", 0);
 
-
+    d3.select(".course-shortcuts")
+        .style("opacity", 1)
+        .transition().duration(400).style("opacity", 0);
 
     window.setTimeout(function()
     {
@@ -90,7 +96,7 @@ function animationStep3()
 
     }, 500);
 }
-function animationStep4()
+function animationStep3()
 {
     vis.select('g.translation')
         .attr("transform", "translate(" + radius + ",0)")
