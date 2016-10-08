@@ -39,6 +39,9 @@ function init()
     updateWindow();
 
     draw();
+
+    d3.select('body').on('click', startAnimation);
+    d3.select('body').on('keydown', startAnimation);
 }
 
 function draw()
@@ -109,6 +112,10 @@ function animationStep3()
         .duration(1000)
         .attrTween("transform", tweenZoom);
 
+    d3.select(".booc-label")
+        .style("opacity", 0)
+        .transition().delay(1000).duration(400).style("opacity", 1);
+
 
     function tweenZoom(d, i, a) {
         return d3.interpolateString("scale(1)", "scale(3)");
@@ -149,7 +156,7 @@ function startAnimation()
         }
     }, 2800);*/
 
-
+    d3.event.preventDefault();
     return false;
 }
 

@@ -27,6 +27,7 @@ path {
     margin-left: -300px;
     top: 48%;
     font-size: 16pt;
+    opacity: 1;
 }
 .course-shortcuts {
     position: absolute;
@@ -36,6 +37,16 @@ path {
     font-size: 16pt;
     opacity: 0;
 }
+
+.booc-label {
+    position: absolute;
+    left:25%;
+    margin-left: -320px;
+    top: 48%;
+    font-size: 32pt;
+    opacity: 0;
+}
+
 
 .course-concepts circle {
     fill: #6666aa;
